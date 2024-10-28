@@ -16,8 +16,7 @@ namespace BlazorAppDotNet8
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
 
-            var currentAssembly = typeof(Program).Assembly;
-            builder.Services.AddFluxor(options => options.ScanAssemblies(currentAssembly));
+            builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly));
             builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Client._Imports).Assembly));
 
             var app = builder.Build();

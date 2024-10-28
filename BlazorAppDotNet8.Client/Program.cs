@@ -8,8 +8,7 @@ namespace BlazorAppDotNet8.Client
         static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            var currentAssembly = typeof(Program).Assembly;
-            builder.Services.AddFluxor(options => options.ScanAssemblies(currentAssembly));
+            builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly));
             await builder.Build().RunAsync();
         }
     }
